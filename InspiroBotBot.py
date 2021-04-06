@@ -20,6 +20,6 @@ async def on_message(message):
     # Discord Quality Of Life Stuff
 
     if message.content.startswith('inspiro'):
-        await message.channel.send(embed = inspirobot.generate())
+        await message.channel.send(embed = await inspirobot.generate())
 
 client.run(token)
