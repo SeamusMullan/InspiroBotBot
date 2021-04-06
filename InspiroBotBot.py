@@ -1,7 +1,7 @@
 #Some Stupid thing by @seamo.m
 
 import discord
-import inspiro
+import inspirobot
 import Keys
 
 token = Keys.DISCORD_BOT_TOKEN #Discord Bot Token
@@ -20,6 +20,6 @@ async def on_message(message):
     # Discord Quality Of Life Stuff
 
     if message.content.startswith('inspiro'):
-        await message.channel.send()
+        await message.channel.send(embed = inspirobot.generate())
 
 client.run(token)
