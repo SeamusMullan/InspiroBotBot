@@ -6,6 +6,7 @@ from requests.api import get
 import Keys
 import requests
 import os
+from time import sleep
 
 token = Keys.DISCORD_BOT_TOKEN #Discord Bot Token
 
@@ -27,7 +28,7 @@ async def on_message(message):
 
     if message.content.startswith('inspiro'):
         Generate()
-        await message.channel.send(embed="theInspire.jpg")
+        await message.channel.send(file=discord.File("theInspire.jpg"))
         if os.path.exists("theInspire.jpg"):
             os.remove("theInspire.jpg")
 
