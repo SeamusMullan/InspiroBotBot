@@ -11,11 +11,10 @@ token = Keys.DISCORD_BOT_TOKEN #Discord Bot Token
 
 client = discord.Client()
 
-
-
-def getImage():
-
-
+def Generate():
+    link = inspirobot.generate()
+    r = requests.get(link)
+    open('theInspire.jpg', 'wb').write(r.content)
 
 @client.event
 async def on_ready():
@@ -27,10 +26,9 @@ async def on_message(message):
         return
 
     if message.content.startswith('inspiro'):
-        link = inspirobot.generate()
-        r = requests.get(link)
-        f = open('theInspire.jpg', 'wb').write(r.content)
-        await message.channel.send(file=discord.file(f))
-        os.remove(f)
+        Generate()
+        await message.channel.send(embed="theInspire.jpg")
+        if os.path.exists("theInspire.jpg"):
+            os.remove("theInspire.jpg")
 
 client.run(token)
