@@ -3,12 +3,13 @@
 import discord
 import inspirobot
 from requests.api import get
-import Keys
 import requests
 import os
 from time import sleep
 
-token = Keys.DISCORD_BOT_TOKEN #Discord Bot Token
+# This file has not been uploaded to GitHub. To implement a custom key, create a Keys.py file and create a string called DISCORD_BOT_TOKEN
+import Keys
+token = Keys.DISCORD_BOT_TOKEN
 
 client = discord.Client()
 
